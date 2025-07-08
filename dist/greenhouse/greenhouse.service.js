@@ -29,4 +29,3 @@ exports.GreenhouseService = GreenhouseService;
 exports.GreenhouseService = GreenhouseService = __decorate([
     (0, common_1.Injectable)()
 ], GreenhouseService);
-//# sourceMappingURL=greenhouse.service.js.map

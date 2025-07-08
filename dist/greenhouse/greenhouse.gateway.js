@@ -12,16 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GreenhouseGateway = void 0;
 const websockets_1 = require("@nestjs/websockets");
 const socket_io_1 = require("socket.io");
-const greenhouse_service_1 = require("./greenhouse.service");
+const common_1 = require("@nestjs/common");
 let GreenhouseGateway = class GreenhouseGateway {
-    constructor(greenhouseService) {
-        this.greenhouseService = greenhouseService;
-    }
-    afterInit() {
-        setInterval(() => {
-            const data = this.greenhouseService.generateFakeSensorData();
-            this.server.emit('sensorData', data);
-        }, 10000);
+    handleSensorData(data) {
+        this.server.emit('sensor-data', data);
     }
 };
 exports.GreenhouseGateway = GreenhouseGateway;
@@ -30,7 +24,10 @@ __decorate([
     __metadata("design:type", socket_io_1.Server)
 ], GreenhouseGateway.prototype, "server", void 0);
 exports.GreenhouseGateway = GreenhouseGateway = __decorate([
-    (0, websockets_1.WebSocketGateway)({ cors: true }),
-    __metadata("design:paramtypes", [greenhouse_service_1.GreenhouseService])
+    (0, websockets_1.WebSocketGateway)({
+        cors: {
+            origin: '*',
+        },
+    }),
+    (0, common_1.Injectable)()
 ], GreenhouseGateway);
-//# sourceMappingURL=greenhouse.gateway.js.map

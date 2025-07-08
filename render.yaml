@@ -3,8 +3,10 @@ services:
     name: greenhouse-backend
     env: node
     plan: free
-    buildCommand: npm install --include=dev && npm run build
+    branch: main  # Asegura que el deploy siempre tome 'main'
+    buildCommand: npm install && npm run build
     startCommand: npm run start:prod
+    autoDeploy: true  # (opcional, ya es default, pero lo aclara)
     envVars:
       - key: NODE_ENV
-        value: development
+        value: production

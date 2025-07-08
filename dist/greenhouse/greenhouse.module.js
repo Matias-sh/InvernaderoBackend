@@ -18,4 +18,3 @@ exports.GreenhouseModule = GreenhouseModule = __decorate([
         providers: [greenhouse_gateway_1.GreenhouseGateway, greenhouse_service_1.GreenhouseService],
     })
 ], GreenhouseModule);
-//# sourceMappingURL=greenhouse.module.js.map

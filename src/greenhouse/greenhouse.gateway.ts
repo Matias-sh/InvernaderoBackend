@@ -1,21 +1,21 @@
 import {
   WebSocketGateway,
   WebSocketServer,
-  OnGatewayInit,
 } from '@nestjs/websockets';
 import { Server } from 'socket.io';
-import { GreenhouseService } from './greenhouse.service';
+import { Injectable } from '@nestjs/common';
 
-@WebSocketGateway({ cors: true })
-export class GreenhouseGateway implements OnGatewayInit {
-  @WebSocketServer() server: Server;
+@WebSocketGateway({
+  cors: {
+    origin: '*',
+  },
+})
+@Injectable()
+export class GreenhouseGateway {
+  @WebSocketServer()
+  server!: Server;
 
-  constructor(private readonly greenhouseService: GreenhouseService) {}
-
-  afterInit() {
-    setInterval(() => {
-      const data = this.greenhouseService.generateFakeSensorData();
-      this.server.emit('sensorData', data);
-    }, 10000);
+  handleSensorData(data: any) {
+    this.server.emit('sensor-data', data);
   }
 }

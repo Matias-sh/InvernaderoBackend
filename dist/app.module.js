@@ -17,4 +17,3 @@ exports.AppModule = AppModule = __decorate([
         imports: [greenhouse_module_1.GreenhouseModule],
     })
 ], AppModule);
-//# sourceMappingURL=app.module.js.map
