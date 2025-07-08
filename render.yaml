@@ -5,5 +5,6 @@ services:
     plan: free
     buildCommand: npm install && npm run build
     startCommand: npm run start:prod
-    branch: main
-    region: oregon
+    envVars:
+      - key: NODE_ENV
+        value: production
