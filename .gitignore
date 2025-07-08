@@ -27,3 +27,7 @@ temp/
 # Optional lockfiles (podés quitar el que no uses)
 package-lock.json
 yarn.lock
+
+node_modules
+dist
+.env
