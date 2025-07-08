@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+dist/
+.env
+.env.* 
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# Render / Deploy
+build/
+temp/
+
+# Optional lockfiles (podés quitar el que no uses)
+package-lock.json
+yarn.lock
